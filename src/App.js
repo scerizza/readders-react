@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Post from './post'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App(){
+
+const [posts, setPosts] = useState([
+  {name: "Ceriz", message: "post di ceriz"},
+  {name: "Pizz", message: "post di pizz"}
+])
+
+  return(
+    <div className="app">
+      {posts.map(post=>(
+        <Post name={post.name} message={post.message}/>
+      ))}
     </div>
-  );
+  )
 }
 
 export default App;
