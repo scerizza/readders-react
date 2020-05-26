@@ -8,7 +8,7 @@
 
 
 .post {
-  margin: 10px;
+  margin: 20px;
   background-color: white;
   border-radius: 20px;
   height: 100px;
@@ -19,7 +19,28 @@
   align-items: center;
 }
 
-.red{
-  color: red;
-  font-size: 50px;
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 10vh;
+  background-color: rgb(233, 54, 90);
+  color: white;
+}
+
+.nav-links{
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  list-style-type: none;
+}
+
+.profilePictureUrl{
+  max-width: 100px;
+}
+
+.vipStar{
+  max-width: 30px;
 }

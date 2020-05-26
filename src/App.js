@@ -1,20 +1,32 @@
-import React, {useState} from 'react'
-import Post from './post'
+import React from 'react'
+import NavBar from './components/NavBar_component.js'
+import User from './pages/user_page.js'
+import PostList from './pages/postList_page.js'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App(){
 
-const [posts, setPosts] = useState([
-  {name: "Ceriz", message: "post di ceriz"},
-  {name: "Pizz", message: "post di pizz"}
-])
+
 
   return(
-    <div className="app">
-      {posts.map(post=>(
-        <Post name={post.name} message={post.message}/>
-      ))}
-    </div>
+    <Router>
+      <div className="app">
+        <NavBar/>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/postlist" exact component={PostList}/>
+          <Route path="/user" exact component={User}/>
+        </Switch>
+      </div>
+    </Router>
+    
   )
 }
+
+const Home= ()=>(
+  <div>
+    <h1>Home Page</h1>
+  </div>
+)
 
 export default App;
