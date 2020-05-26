@@ -22,7 +22,7 @@ function PostList(){
 
   return(
     <div>
-        <h1>Posts</h1>
+        <br/><br/>
         {posts.map(post=>(
         <Post 
           name={post.username}

@@ -1,11 +1,14 @@
 import React from 'react'
 import '../App.css'
 
-function User({username, fullname,profilePictureUrl, vip, bio,followers, follows, points, level, readBooks, wishlist, swaplist, groups}){
+function User({username, fullname,profilePictureUrl, vip, bio,followers, follows, points, level, groups}){
     
-    const imgUrl= profilePictureUrl !== undefined && false ? profilePictureUrl : "userImg.png"
+    const imgUrl= profilePictureUrl !== undefined ? profilePictureUrl : "userImg.png"
     const vipImg= vip ? "Star.png" : ""
 
+
+
+    
 
     return(
         <div className= "user">
@@ -16,7 +19,7 @@ function User({username, fullname,profilePictureUrl, vip, bio,followers, follows
             <img src={imgUrl} alt="" className="profilePictureUrl"/>
             <h2>{fullname}</h2>
             <h4>level: {level}, points: {points}</h4>
-            <br></br><br></br>
+            <br></br>
             <p>{bio}</p>
             
         </div>

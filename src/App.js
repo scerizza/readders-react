@@ -16,6 +16,7 @@ function App(){
           <Route path="/" exact component={Home}/>
           <Route path="/postlist" exact component={PostList}/>
           <Route path="/user" exact component={User}/>
+          <Route path="/user/:username" component={User}/>
         </Switch>
       </div>
     </Router>
