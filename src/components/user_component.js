@@ -10,7 +10,7 @@ function User({username, fullname,profilePictureUrl, vip, bio,followers, follows
 
     
 
-    return(
+    return( 
         <div className= "user">
             <br></br>
             <h1>{username}</h1>

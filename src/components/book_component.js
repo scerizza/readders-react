@@ -8,7 +8,7 @@ function Book({title, coverBookUrl, isbn}){
     return(
         <div>
             <img src={imgUrl} alt=""/>
-            <h5>{title}</h5>
+            <h5>{title}</h5> 
         </div>
     )
 

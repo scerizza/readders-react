@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 function Navbar(){
 
-    const navStyle = {
+    const navStyle = { 
         color: 'white',
         
     }

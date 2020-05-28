@@ -12,7 +12,7 @@ function BookList({listType, list}){
             <h5>{listType}</h5>
             {books.map(book=>(
                <Book
-                 title={book.title}
+                 title={book.title} 
                  coverBookUrl={book.coverBookUrl}
                  isbn={book.isbn}              
                />  

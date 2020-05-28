@@ -2,7 +2,8 @@ import React from 'react'
 import NavBar from './components/NavBar_component.js'
 import User from './pages/user_page.js'
 import PostList from './pages/postList_page.js'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Home from './pages/home_page.js'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' 
 
 function App(){
 
@@ -24,10 +25,5 @@ function App(){
   )
 }
 
-const Home= ()=>(
-  <div>
-    <h1>Home Page</h1>
-  </div>
-)
 
 export default App;
