@@ -1,45 +1,32 @@
-import React, {useState} from 'react'
-import {CognitoUser, AuthenticationDetails} from 'amazon-cognito-identity-js'
-import UserPool from '../UserPool.js';
+import React, {useState, useContext} from 'react'
+import { AccountContext} from '../utils/account.js'
 
 function Login(){
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const sendLogin =(event)=>{
+    const {authenticate}= useContext(AccountContext);
+
+       const sendLogin =(event)=>{
 
         event.preventDefault();
 
-        const user = new CognitoUser({
-            Username: email,
-            Pool: UserPool
-        });
+        authenticate(email, password)//  authenticate function
+            .then(data=>{
+                window.location.reload(false);
 
-        const authDetails = new AuthenticationDetails({
-            Username: email,
-            Password: password
-        });
-
-        user.authenticateUser(authDetails, {
-            onSuccess: data =>{
-                console.log('onSuccess', data)
-                alert("Login Effettuato")
-            },
-            onFailure: err=>{
-                console.error("onFailure", err)
-                alert(err.message)
-            },
-            newPasswordRequired: data=>{
-                console.log("newPasswordRequired", data)                
-            }
-        });
- 
+            })
+            .catch(err =>{
+                console.log('Failed to login!', err);
+                
+            })
     }
-
+    
     return(
         <div className="FormDiv">
             <br/>
-            <h3>Accedi:</h3>
+            <h3>Login</h3>
             <form onSubmit={sendLogin}>
                 <input placeholder="email" onChange={(event)=>setEmail(event.target.value)} className="InputText"/>
                 <br/>
@@ -48,7 +35,7 @@ function Login(){
                 <input type="submit"  value="Accedi" className="ClassicButton"/>
             </form>
         </div>
-    )
-}
+        )
 
+    }
 export default Login;

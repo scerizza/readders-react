@@ -4,26 +4,34 @@ import BookList from '../components/bookList_component.js';
 import Post from '../components/post_component.js'
 
 
-function UserPage({match}){
+function PersonalUserPage({userId}){
 
-  const userTargetUrl= match.params.username === undefined ? "http://localhost:4000/user/ceriz23" : "http://localhost:4000/user/"+match.params.username
-  const postTargetUrl= match.params.username === undefined ? "http://localhost:4000/post/ceriz23" : "http://localhost:4000/post/"+match.params.username
+  const userTargetUrl = userId === "" ? "http://localhost:4000/user/ceriz23" : "http://localhost:4000/user/id/"+userId
+  
+  console.log('userTargetUrl',userTargetUrl);
+  
+  
+  const [user, setUser] = useState({})
+  const [posts, setPost] = useState([])
+
+
+  //const postTargetUrl= "http://localhost:4000/post/id/"+userId
 
   useEffect(()=>{
     fetchItems();
   },[]);
 
-  const [user, setUser] = useState({})
-  const [posts, setPost] = useState([])
+
 
   const fetchItems = async () =>{
-    const userData = await fetch(userTargetUrl);
-    const postData = await fetch(postTargetUrl);
-
     
-    const user= await userData.json();
+   
+    const userData = await fetch(userTargetUrl);
+    const user  = await userData.json();
     setUser(user[0])
 
+    const postTargetUrl= "http://localhost:4000/post/"+ user[0].username
+    const postData = await fetch(postTargetUrl);
     const posts= await postData.json();
     setPost(posts) 
         
@@ -66,4 +74,4 @@ function UserPage({match}){
   )
 }
 
-export default UserPage;
+export default PersonalUserPage;
